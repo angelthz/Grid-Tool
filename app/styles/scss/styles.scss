@@ -1,0 +1,768 @@
+@use "sass:color";
+@use 'reset' as *;
+@use 'counters' as *;
+@use 'base' as *;
+
+
+$header-height : 8vh;
+
+$main-purple : hsl(257, 92%, 60%);
+$main-blue : hsl(216 98.4% 52.2%);
+// $main-blue : #0d6dfd;
+$main-pink : hsl(321 67% 50%);
+$text-color-main : #49616e;
+$text-color-alter : hsl(201, 20%, 30%);
+$border-gray : #d9d9d9;
+$canvas-bg: #f3f4f6;
+$tab-body-bg: #f9fafb;
+$lg-break: 1024px;
+
+$round-xs: 0.25rem;
+$round-sm: 0.5rem;
+$round-full: 50%;
+
+
+$svg-fill: #222;
+
+$btn-lg: 64px;
+$btn-md: 48px;
+$btn-sm: 40px;
+
+$menu-lg-width: 20%;
+$canvas-lg-width: 100% - $menu-lg-width;
+
+
+$purple-palete : ();
+$blue-palete : ();
+$pink-palete: (
+);
+
+$transition-bg : background-color 0.3s ease-in-out;
+
+
+html{
+    color: $text-color-alter;
+}
+
+@mixin btn-style($color) {
+    background-color: $color;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: $round-xs;
+    cursor: pointer;
+    transition: $transition-bg;
+    &:hover {
+        background-color: darken($color, 12%);
+    }
+}
+
+@mixin hover-effect($color){
+    &:hover {
+        background-color: darken($color, 12%);
+    }
+}
+
+@mixin btn-rounded($color) {
+    background-color: $color;
+    border-radius: $round-full;
+    cursor: pointer;
+    transition: $transition-bg;
+    &:hover {
+        background-color: darken($color, 12%);
+    }
+}
+
+@mixin center-row-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin center-col-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.header {
+    width: 100%;
+    height: $header-height;
+    border-bottom: 2px solid $border-gray;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: $container-100;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 1rem;
+
+        .header-logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .header-nav {
+            a {
+                padding: 0 1.5rem;
+                text-decoration: none;
+                color: black;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: var(--blue-90);
+                }
+            }
+        }
+    }
+}
+
+
+.home {
+    margin-top: 3rem;
+    width: 100%;
+    height: 85vh;
+    padding: 0 0.5rem;
+    .app-description{
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        h1{
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        p{
+            font-size: 1.2rem;
+            margin: 0;
+        }
+    }
+    .main-uploader{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 80%;
+        .uploader-area{
+            border: 2px dashed $border-gray;
+            position: relative;
+            width: 90%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 2rem;
+            border-radius: $round-xs;
+        }
+
+        .uploader-banner{
+            background-color: $canvas-bg;
+            width: 100%;
+            height: 70%;
+            border-radius: $round-xs;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: $svg-fill;
+            svg{
+                width: 4rem;
+                height: 4rem;
+                fill: $svg-fill;
+            }
+        }
+        .main-input{
+            width: 0;
+            height: 0;
+        }
+        .main-input-label{
+            width: 100%;
+            padding: 1rem;
+            display: block;
+            @include btn-style($main-blue);
+            text-align: center;
+        }
+    }
+    @media screen and (min-width: $lg-break){
+        .main-uploader{
+            .uploader-area{
+                width: 50%;
+            }
+        }
+    }
+}
+
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100vh - $header-height;
+
+    .app-menu {
+        order: 1;
+        width: $w-100;
+        height: $h-20;
+    }
+
+    .app-canvas {
+        width: $w-100;
+        height: $h-100 - $h-20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $canvas-bg;
+        canvas {
+            // border: thin solid red;
+            max-width: 95%;
+            max-height: 95%;
+            // box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.3);
+        }
+
+    }
+
+    @media screen and (min-width: $lg-break) {
+        flex-direction: row;
+        .app-menu {
+            order: 0;
+            width: $menu-lg-width;
+            height: $h-100;
+        }
+
+        .app-canvas {
+            width: $canvas-lg-width;
+            height: $h-100;
+            border-left: 2px solid $border-gray;
+        }
+    }
+}
+
+
+.app-menu {
+    .general-options{
+        width: 100%;
+        height: 100%;
+    }
+    .download-option{
+        // display: none;
+        position: fixed;
+        width: 48px;
+        height: 48px;
+        bottom: 20%;
+        right: 1rem;
+        button{
+            width: 100%;
+            height: 100%;
+            @include btn-rounded($main-blue);
+            span{
+                display: none;
+            }
+            svg{
+                width: 28px;
+                height: 28px;
+                fill: white;
+            }
+        }
+    }
+
+    .options-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .option-tab{
+        position: relative;
+        order: 1;
+        flex-grow: 1;
+        height: 35%;
+        border-top: 1px solid $border-gray;
+        border-bottom: 1px solid $border-gray;
+        @include center-row-flex();
+        cursor: pointer;
+        svg{
+            fill: $svg-fill;
+            width: 32px;
+            height: 32px;
+        }
+        h3{
+            display: none;
+        }
+    }
+
+    .option-body{
+        order: 6;
+        width: 100%;
+        height: 65%;
+    }
+
+    @media screen and (min-width: $lg-break) {
+
+        .general-options{
+            height: 90%;
+        }
+
+        .tab-title{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 0.25rem;
+            svg{
+                width: 26px;
+                height: 26px;
+                fill: darken($border-gray, $amount: 55%);
+            }
+            h3{
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+        }
+        
+        .download-option{
+            position: static;
+            width: 100%;
+            height: 10%;
+            border-top: 1px solid $border-gray;
+            padding: 8px 1rem;
+            button{
+                @include btn-style($main-blue);
+                span{
+                    display: inline-block;
+                    color: white;
+                    pointer-events: none;
+                }
+                svg{
+                    display: none;
+                }
+            }
+        }
+
+        .options-container{
+            display: block;
+            
+            .option-tab:first-child{
+
+                border-top: none;
+            }
+        }
+
+        .option-tab,.option-body{
+                width: 100%;
+                height: auto;
+                padding: 8px 8px;
+                order: 1;
+                // pointer-events: none;
+        }
+
+        .option-tab{
+            // width: 100%;
+            background-color: $canvas-bg;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 0.5rem;
+            pointer-events: none;
+            h3{
+                display: inline-block;
+            }
+        }
+        
+        .option-tab.active{
+            background-color: $canvas-bg;
+            .tab-title svg{
+                fill: darken($border-gray, $amount: 55%);
+            }
+        }
+
+        .option-body{
+            display: block;
+        }
+
+    }
+}
+
+
+
+.option-tab.active {
+    transition: all 0.4s ease-in-out;
+    background-color: color.adjust($main-blue, $lightness: 2%);
+    .tab-title{
+        svg{
+            fill: #fff;
+        }
+        @media screen and (min-width: $lg-break) {
+            svg{
+                fill: $svg-fill;
+            }
+        }
+    }
+    
+}
+
+.option-tab:hover::before {
+    content: "";
+    opacity: 1;
+}
+
+.option-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.option-content.upload-option {
+    position: relative;
+
+    input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        height: 48px;
+        // padding: 4rem;
+        @include btn-style($main-blue);
+        
+        svg {
+            margin-right: 0.5rem;
+        }
+
+   
+
+    }
+
+    svg {
+        width: 2rem;
+        height: 2rem;
+        fill: white;
+    }
+
+    input:active+label,
+    input+label:hover {
+        // background-color: var(--blue-75);
+        @include hover-effect($main-blue);
+    }
+
+    .inputfile+label {
+        cursor: pointer;
+        /* "hand" cursor */
+    }
+
+    // .inputfile:focus + label {
+    //     outline: 1px dotted #000;
+    //     outline: -webkit-focus-ring-color auto 5px;
+    // }
+    @media screen and (min-width: $lg-break) {
+        label {
+            width: 100%;
+            height: 48px;
+        }
+    }
+}
+
+.option-content.counters-option {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    svg{
+        width: 32px;
+        height: 32px;
+        fill: $svg-fill;
+    }
+    .counter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        label{
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    @media screen and (min-width: $lg-break) {
+        flex-direction: column;
+        gap: 1rem;
+
+        .counter-container {
+            width: 75%;
+            justify-content: space-evenly;
+        }
+    }
+}
+
+.option-content.pallete-option {
+    // overflow-x: scroll;
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    .palette-container {
+        display: flex;
+        // gap: 1rem;
+        // margin-right: 1rem;
+    }
+
+    .color-container {
+        width: 64px;
+        height: 64px;
+        border-radius: 0.5rem;
+        position: relative;
+        svg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            fill: $svg-fill;
+            // pointer-events: none;
+        }
+    }
+
+    .color-container:first-child .color-label {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+    }
+
+    .color-container:last-child .color-label {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }
+
+    .color-input,
+    .color-label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .color-input {
+
+        &:checked~.color-label {
+            filter: brightness(0.5);
+        }
+    }
+
+    .color-label {
+        // z-index: 2;
+        background-color: var(--color);
+        color: transparent;
+        cursor: pointer;
+        transition: filter 0.3s ease;
+    }
+
+    @media screen and (min-width: $lg-break) {
+        overflow: visible;
+        gap: 0;
+        .palette-container{
+            margin-right: 0.5rem;
+        }
+        .palette-container div:nth-child(4),
+        .palette-container div:nth-child(5){
+            display: none;
+        }
+        .color-container{
+            width: $btn-md;
+            height: $btn-md;
+            svg{
+                width: 28px;
+                height: 28px;
+            }
+        }
+      
+    }
+
+}
+
+.clr-field{
+    &:hover{
+        filter: brightness(0.8);
+    }
+}
+
+.clr-field button {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    z-index: 1;
+}
+.coloris {
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+    cursor: pointer;
+    &:focus{
+        border: 5px solid red;
+    }
+    @media screen and (min-width: $lg-break) {
+        width: $btn-md;
+        height: $btn-md;
+    }
+}
+
+
+
+.option-content.adjust-option {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    position: relative;
+    .adjust-container{
+        // position: relative;
+        // width: auto;
+        // height: 100%;
+        // border: thin solid red;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0 1rem;
+        // flex-grow: 1;
+    }
+
+    .adjust-btn{
+        width: 64px;
+        height: 64px;
+        border-radius: $round-xs;
+        background-color: $main-blue;
+        transition: filter 0.25s ease-in-out;
+        cursor: pointer;
+        svg{
+            fill: white;
+            width: 28px;
+            height: 28px;
+        }
+        &:hover{
+            filter: brightness(0.9);
+        }
+        
+    }
+
+    .adjust-control{
+        display: flex;
+        align-items: center;
+    }
+    input[type="range"]{
+        width: 80%;
+        display: inline-block;
+    }
+
+     @media screen and (min-width: $lg-break) {
+        display: block;
+        
+        .adjust-container{
+            width: 100%;
+            padding: 0;
+            margin: 0.5rem auto;
+        }
+        .adjust-btn{
+            background-color: $border-gray;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 32px;
+            height: 32px;
+            svg{
+                fill: $svg-fill;
+            }
+        }
+        .adjust-value{
+            display: block !important;
+        }
+     }
+}
+
+.option-download {
+
+    .download-btn {
+        position: fixed;
+        bottom: 20%;
+        right: 1rem;
+        width: 3rem;
+        height: 3rem;
+        z-index: 2;
+        // display: flex
+        @include btn-rounded($main-blue);
+        span{
+            display: none;
+        }
+        svg{
+            position: absolute;
+            left: 0; top: 0; right: 0; bottom: 0;
+            margin: auto;
+            width: 2rem;
+            height: 2rem;
+            fill: white;
+        }
+    }
+    @media screen and (min-width: $lg-break) {
+        position: relative;
+        width: 100%;
+        height: 10%;
+        border-top: 2px solid $border-gray;
+        @include center-row-flex();
+        .download-btn{
+            position: static;
+            width: 90%;
+            border-radius: $round-xs;
+            @include btn-style($main-blue);
+            span{
+                display: block
+            }
+            svg{
+                display: none;
+            }
+        }
+    }
+}
+
+
+.hidden{
+    display: none !important;
+}
+
+.open-option{
+    z-index: 1;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.os-scrollbar{
+    --os-size : 7px;
+    --os-handle-bg: #ccc;
+    --os-handle-bg-hover: #b0b0b0;
+}

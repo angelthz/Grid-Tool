@@ -1,0 +1,36 @@
+//set border-box as default box model
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+//reseting to box model
+html{
+    box-sizing: inherit;
+}
+
+//margin 0 for body
+body{
+    margin: 0;
+    // background-color: black;
+}
+
+button{
+    border: none;
+}
+
+//disable pointer events for svg
+svg{
+    pointer-events: none;
+}
+
+//disble margin for H elements
+@for $i from 1 through 6{
+      h#{$i} {
+        margin: 0;
+      }  
+}
+
+
+

@@ -1,0 +1,747 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  border: none;
+}
+
+svg {
+  pointer-events: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+h5 {
+  margin: 0;
+}
+
+h6 {
+  margin: 0;
+}
+
+.counter {
+  max-width: 140px;
+  height: 42.5px;
+  display: flex;
+}
+
+.counter-minus,
+.counter-plus {
+  width: 32%;
+  margin: 0;
+  outline: none;
+  background-color: hsl(216, 98%, 52%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.counter-minus {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.counter-plus {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.counter-minus:hover,
+.counter-plus:hover {
+  background-color: hsl(216, 98%, 60%);
+}
+
+.counter-input {
+  width: 36%;
+  margin: 0;
+  outline: none;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+html {
+  color: hsl(201, 20%, 30%);
+}
+
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.header {
+  width: 100%;
+  height: 8vh;
+  border-bottom: 2px solid #d9d9d9;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.header .container .header-logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.header .container .header-nav a {
+  padding: 0 1.5rem;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+.header .container .header-nav a:hover {
+  color: var(--blue-90);
+}
+
+.home {
+  margin-top: 3rem;
+  width: 100%;
+  height: 85vh;
+  padding: 0 0.5rem;
+}
+.home .app-description {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+.home .app-description h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.home .app-description p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+.home .main-uploader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+.home .main-uploader .uploader-area {
+  border: 2px dashed #d9d9d9;
+  position: relative;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+  border-radius: 0.25rem;
+}
+.home .main-uploader .uploader-banner {
+  background-color: #f3f4f6;
+  width: 100%;
+  height: 70%;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+}
+.home .main-uploader .uploader-banner svg {
+  width: 4rem;
+  height: 4rem;
+  fill: #222;
+}
+.home .main-uploader .main-input {
+  width: 0;
+  height: 0;
+}
+.home .main-uploader .main-input-label {
+  width: 100%;
+  padding: 1rem;
+  display: block;
+  background-color: hsl(216, 98.4%, 52.2%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  text-align: center;
+}
+.home .main-uploader .main-input-label:hover {
+  background-color: hsl(216, 98.4%, 40.2%);
+}
+@media screen and (min-width: 1024px) {
+  .home .main-uploader .uploader-area {
+    width: 50%;
+  }
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 92vh;
+}
+.app-container .app-menu {
+  order: 1;
+  width: 100%;
+  height: 20%;
+}
+.app-container .app-canvas {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6;
+}
+.app-container .app-canvas canvas {
+  max-width: 95%;
+  max-height: 95%;
+}
+@media screen and (min-width: 1024px) {
+  .app-container {
+    flex-direction: row;
+  }
+  .app-container .app-menu {
+    order: 0;
+    width: 20%;
+    height: 100%;
+  }
+  .app-container .app-canvas {
+    width: 80%;
+    height: 100%;
+    border-left: 2px solid #d9d9d9;
+  }
+}
+
+.app-menu .general-options {
+  width: 100%;
+  height: 100%;
+}
+.app-menu .download-option {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  bottom: 20%;
+  right: 1rem;
+}
+.app-menu .download-option button {
+  width: 100%;
+  height: 100%;
+  background-color: hsl(216, 98.4%, 52.2%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.app-menu .download-option button:hover {
+  background-color: hsl(216, 98.4%, 40.2%);
+}
+.app-menu .download-option button span {
+  display: none;
+}
+.app-menu .download-option button svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+.app-menu .options-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.app-menu .option-tab {
+  position: relative;
+  order: 1;
+  flex-grow: 1;
+  height: 35%;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.app-menu .option-tab svg {
+  fill: #222;
+  width: 32px;
+  height: 32px;
+}
+.app-menu .option-tab h3 {
+  display: none;
+}
+.app-menu .option-body {
+  order: 6;
+  width: 100%;
+  height: 65%;
+}
+@media screen and (min-width: 1024px) {
+  .app-menu .general-options {
+    height: 90%;
+  }
+  .app-menu .tab-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .app-menu .tab-title svg {
+    width: 26px;
+    height: 26px;
+    fill: rgb(76.75, 76.75, 76.75);
+  }
+  .app-menu .tab-title h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .app-menu .download-option {
+    position: static;
+    width: 100%;
+    height: 10%;
+    border-top: 1px solid #d9d9d9;
+    padding: 8px 1rem;
+  }
+  .app-menu .download-option button {
+    background-color: hsl(216, 98.4%, 52.2%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .app-menu .download-option button:hover {
+    background-color: hsl(216, 98.4%, 40.2%);
+  }
+  .app-menu .download-option button span {
+    display: inline-block;
+    color: white;
+    pointer-events: none;
+  }
+  .app-menu .download-option button svg {
+    display: none;
+  }
+  .app-menu .options-container {
+    display: block;
+  }
+  .app-menu .options-container .option-tab:first-child {
+    border-top: none;
+  }
+  .app-menu .option-tab, .app-menu .option-body {
+    width: 100%;
+    height: auto;
+    padding: 8px 8px;
+    order: 1;
+  }
+  .app-menu .option-tab {
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: none;
+  }
+  .app-menu .option-tab h3 {
+    display: inline-block;
+  }
+  .app-menu .option-tab.active {
+    background-color: #f3f4f6;
+  }
+  .app-menu .option-tab.active .tab-title svg {
+    fill: rgb(76.75, 76.75, 76.75);
+  }
+  .app-menu .option-body {
+    display: block;
+  }
+}
+
+.option-tab.active {
+  transition: all 0.4s ease-in-out;
+  background-color: hsl(216, 98.4%, 54.2%);
+}
+.option-tab.active .tab-title svg {
+  fill: #fff;
+}
+@media screen and (min-width: 1024px) {
+  .option-tab.active .tab-title svg {
+    fill: #222;
+  }
+}
+
+.option-tab:hover::before {
+  content: "";
+  opacity: 1;
+}
+
+.option-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.option-content.upload-option {
+  position: relative;
+}
+.option-content.upload-option input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.option-content.upload-option label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 48px;
+  background-color: hsl(216, 98.4%, 52.2%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.option-content.upload-option label:hover {
+  background-color: hsl(216, 98.4%, 40.2%);
+}
+.option-content.upload-option label svg {
+  margin-right: 0.5rem;
+}
+.option-content.upload-option svg {
+  width: 2rem;
+  height: 2rem;
+  fill: white;
+}
+.option-content.upload-option input:active + label:hover,
+.option-content.upload-option input + label:hover:hover {
+  background-color: hsl(216, 98.4%, 40.2%);
+}
+.option-content.upload-option .inputfile + label {
+  cursor: pointer;
+  /* "hand" cursor */
+}
+@media screen and (min-width: 1024px) {
+  .option-content.upload-option label {
+    width: 100%;
+    height: 48px;
+  }
+}
+
+.option-content.counters-option {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.option-content.counters-option svg {
+  width: 32px;
+  height: 32px;
+  fill: #222;
+}
+.option-content.counters-option .counter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.option-content.counters-option .counter-container label {
+  width: 32px;
+  height: 32px;
+}
+@media screen and (min-width: 1024px) {
+  .option-content.counters-option {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .option-content.counters-option .counter-container {
+    width: 75%;
+    justify-content: space-evenly;
+  }
+}
+
+.option-content.pallete-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.option-content.pallete-option .palette-container {
+  display: flex;
+}
+.option-content.pallete-option .color-container {
+  width: 64px;
+  height: 64px;
+  border-radius: 0.5rem;
+  position: relative;
+}
+.option-content.pallete-option .color-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  fill: #222;
+}
+.option-content.pallete-option .color-container:first-child .color-label {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.option-content.pallete-option .color-container:last-child .color-label {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.option-content.pallete-option .color-input,
+.option-content.pallete-option .color-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.option-content.pallete-option .color-input:checked ~ .color-label {
+  filter: brightness(0.5);
+}
+.option-content.pallete-option .color-label {
+  background-color: var(--color);
+  color: transparent;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+@media screen and (min-width: 1024px) {
+  .option-content.pallete-option {
+    overflow: visible;
+    gap: 0;
+  }
+  .option-content.pallete-option .palette-container {
+    margin-right: 0.5rem;
+  }
+  .option-content.pallete-option .palette-container div:nth-child(4),
+  .option-content.pallete-option .palette-container div:nth-child(5) {
+    display: none;
+  }
+  .option-content.pallete-option .color-container {
+    width: 48px;
+    height: 48px;
+  }
+  .option-content.pallete-option .color-container svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.clr-field:hover {
+  filter: brightness(0.8);
+}
+
+.clr-field button {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.coloris {
+  width: 64px;
+  height: 64px;
+  opacity: 0;
+  cursor: pointer;
+}
+.coloris:focus {
+  border: 5px solid red;
+}
+@media screen and (min-width: 1024px) {
+  .coloris {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.option-content.adjust-option {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  position: relative;
+}
+.option-content.adjust-option .adjust-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 1rem;
+}
+.option-content.adjust-option .adjust-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 0.25rem;
+  background-color: hsl(216, 98.4%, 52.2%);
+  transition: filter 0.25s ease-in-out;
+  cursor: pointer;
+}
+.option-content.adjust-option .adjust-btn svg {
+  fill: white;
+  width: 28px;
+  height: 28px;
+}
+.option-content.adjust-option .adjust-btn:hover {
+  filter: brightness(0.9);
+}
+.option-content.adjust-option .adjust-control {
+  display: flex;
+  align-items: center;
+}
+.option-content.adjust-option input[type=range] {
+  width: 80%;
+  display: inline-block;
+}
+@media screen and (min-width: 1024px) {
+  .option-content.adjust-option {
+    display: block;
+  }
+  .option-content.adjust-option .adjust-container {
+    width: 100%;
+    padding: 0;
+    margin: 0.5rem auto;
+  }
+  .option-content.adjust-option .adjust-btn {
+    background-color: #d9d9d9;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+  }
+  .option-content.adjust-option .adjust-btn svg {
+    fill: #222;
+  }
+  .option-content.adjust-option .adjust-value {
+    display: block !important;
+  }
+}
+
+.option-download .download-btn {
+  position: fixed;
+  bottom: 20%;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 2;
+  background-color: hsl(216, 98.4%, 52.2%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.option-download .download-btn:hover {
+  background-color: hsl(216, 98.4%, 40.2%);
+}
+.option-download .download-btn span {
+  display: none;
+}
+.option-download .download-btn svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 2rem;
+  height: 2rem;
+  fill: white;
+}
+@media screen and (min-width: 1024px) {
+  .option-download {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    border-top: 2px solid #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .option-download .download-btn {
+    position: static;
+    width: 90%;
+    border-radius: 0.25rem;
+    background-color: hsl(216, 98.4%, 52.2%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .option-download .download-btn:hover {
+    background-color: hsl(216, 98.4%, 40.2%);
+  }
+  .option-download .download-btn span {
+    display: block;
+  }
+  .option-download .download-btn svg {
+    display: none;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.open-option {
+  z-index: 1;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.os-scrollbar {
+  --os-size: 7px;
+  --os-handle-bg: #ccc;
+  --os-handle-bg-hover: #b0b0b0;
+}
+
+/*# sourceMappingURL=styles.css.map */

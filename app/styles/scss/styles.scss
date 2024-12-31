@@ -672,7 +672,7 @@ html {
     }
     input[type="range"]{
         width: 80%;
-        display: inline-block;
+        // display: inline-block;
     }
 
      @media screen and (min-width: $lg-break) {
@@ -750,7 +750,7 @@ html {
 }
 
 .hidden{
-    display: none !important;
+    display: none;
 }
 
 .open-option{

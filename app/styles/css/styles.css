@@ -632,7 +632,6 @@ html {
 }
 .option-content.adjust-option input[type=range] {
   width: 80%;
-  display: inline-block;
 }
 @media screen and (min-width: 1024px) {
   .option-content.adjust-option {
@@ -728,7 +727,7 @@ html {
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
 .open-option {

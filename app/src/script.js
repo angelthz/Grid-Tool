@@ -243,12 +243,12 @@ const init = () => {
         document.querySelectorAll(".option-body").forEach((tabBody, idx) => {
           document.querySelector(`div[data-tab-id='${tabBody.dataset.bodyId}']`).classList.remove("active");
           if (tabBody.dataset.bodyId !== id) {
-            tabBody.classList.add("visually-sm-hidden");
+            tabBody.classList.add("hidden");
           }
           e.target.classList.add("active")
         })
 
-        document.querySelector(`div[data-body-id='${id}']`).classList.remove("visually-sm-hidden");
+        document.querySelector(`div[data-body-id='${id}']`).classList.remove("hidden");
       }
       catch (err) {
         console.error(err);

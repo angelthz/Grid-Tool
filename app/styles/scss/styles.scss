@@ -745,6 +745,9 @@ html {
     }
 }
 
+.no-events{
+    pointer-events: none;
+}
 
 .hidden{
     display: none !important;

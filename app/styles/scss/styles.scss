@@ -586,10 +586,10 @@ html {
         .palette-container{
             margin-right: 0.5rem;
         }
-        .palette-container div:nth-child(4),
-        .palette-container div:nth-child(5){
-            display: none;
-        }
+        // .palette-container div:nth-child(4),
+        // .palette-container div:nth-child(5){
+        //     display: none;
+        // }
         .color-container{
             width: $btn-md;
             height: $btn-md;

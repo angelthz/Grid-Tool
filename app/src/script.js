@@ -218,6 +218,7 @@ const init = () => {
   Coloris.setInstance('.picker', {
     theme: 'polaroid',
     closeButton: true,
+    focusInput: false,
     el: '.picker'
   });
   
@@ -228,11 +229,12 @@ const init = () => {
     ClickScrollPlugin  
   } = OverlayScrollbarsGlobal;
   // Simple initialization with an element
-  const osInstance = OverlayScrollbars(document.querySelector('.general-options'), {
+  const optionsCustomScroll = OverlayScrollbars(document.querySelector('.general-options'), {
     overflow:{
       x : 'hidden'
     }
   });
+
 
 
   document.addEventListener("click", e => {
